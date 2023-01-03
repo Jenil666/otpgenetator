@@ -14,6 +14,7 @@ class _codeState extends State<code> {
   TextEditingController l= TextEditingController();
   int leng=0;
   List v=[""];
+  int? r;
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
@@ -65,15 +66,16 @@ class _codeState extends State<code> {
               String le=l.text;
               leng=int.parse(le);
               var rnd=Random();
-              rnd.nextInt(9);
               setState(() {
                 v.clear();
                 for(int i=0; i<leng; i++)
                   {
-                    v.add(rnd);
+                    r=rnd.nextInt(9);
+                    v.add(r);
                   }
+               // v1=int.parse("$v");
+            //    print(v1);
               });
-              print(v);
             },
             child: Container(
               margin: EdgeInsets.only(left: 100,right: 100),
@@ -92,6 +94,51 @@ class _codeState extends State<code> {
                   Color(0xffffe8b8),
                   Color(0xfff6db87),
                 ])
+              ),
+            ),
+          ),
+          SizedBox(height: 100,),
+          Container(
+            margin: EdgeInsets.all(15),
+            height: 60,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Color(0xffffe8b8),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            alignment: Alignment.center,
+            child: Text("$v",
+            style: TextStyle(
+              fontSize: 30
+            ),
+            ),
+          ),
+          SizedBox(height: 100,),
+          InkWell(
+            onTap: (){
+              setState(() {
+                l.text="";
+              });
+            },
+            child: Container(
+              margin:EdgeInsets.only(left: 100,right: 100),
+              height: 60,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xffffe8b8),
+                    Color(0xfff6db87),
+                  ]
+                )
+              ),
+              alignment: Alignment.center,
+              child: Text("Reset",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black
+              ),
               ),
             ),
           ),
