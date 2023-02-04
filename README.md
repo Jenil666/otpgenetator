@@ -17,4 +17,3 @@ samples, guidance on mobile development, and a full API reference.
 <p>
 <img src="https://user-images.githubusercontent.com/116253963/214770716-0d881c75-074a-4508-b04e-9d6a0ba1d60d.JPG" height=22% eidth=22%>
 </p>
-![OTP]()
